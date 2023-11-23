@@ -45,6 +45,6 @@ plt.ylabel('$x_2$')
 plt.legend()
 plt.title('Feasible Region with Objective Function Contours')
 plt.grid(True)
-plt.show()
+plt.savefig('1.jpg')
 
 x_opt
