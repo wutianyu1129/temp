@@ -11,13 +11,6 @@
 
 
 [General]
-# > 跳过代理
-# 跳过某个域名或者 IP 段，这些目标主机将不会由 Loon Proxy 处理。
-skip-proxy = localhost, *.local, *.duckdns.org
-
-# > Always Real IP Hosts
-# DNS 数据包将被转发到上游 DNS 服务器。
-real-ip = *.duckdns.org
 
 [Rule]
 # bilibili精简并阻止缓存
