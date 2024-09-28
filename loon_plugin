@@ -11,13 +11,8 @@
 
 
 [General]
-# > 跳过代理 - 跳过某个域名或者 IP 段，这些目标主机将不会由 Loon Proxy 处理。
-# skip-proxy = *.ipv64.net
 
 [Rule]
-
-DOMAIN-SUFFIX, ipv64.net, direct
-
 # bilibili精简并阻止缓存
 DOMAIN-SUFFIX, upos-sz-staticcos.bilivideo.com, proxy
 DOMAIN-SUFFIX, appdl-1-drcn.dbankcdn.com, proxy
