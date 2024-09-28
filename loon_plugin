@@ -13,6 +13,9 @@
 [General]
 
 [Rule]
+
+DOMAIN-SUFFIX, ipv64.net, direct
+
 # bilibili精简并阻止缓存
 DOMAIN-SUFFIX, upos-sz-staticcos.bilivideo.com, reject
 DOMAIN-SUFFIX, appdl-1-drcn.dbankcdn.com, reject
