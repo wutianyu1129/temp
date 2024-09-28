@@ -7,53 +7,53 @@
 #!select = 
 #!input = 
 #!raw-url=https://raw.githubusercontent.com/wutianyu1129/Quantumult-X/main/wawa
-#!update：2024.9.9
+#!update：2024.9.28
 
 
 [General]
 
 [Rule]
 # bilibili精简并阻止缓存
-DOMAIN-SUFFIX, upos-sz-staticcos.bilivideo.com, proxy
-DOMAIN-SUFFIX, appdl-1-drcn.dbankcdn.com, proxy
-DOMAIN-SUFFIX, biligame.com, proxy
-DOMAIN-SUFFIX, biligame.net, proxy
-DOMAIN-SUFFIX, krxd.net, proxy
-DOMAIN-SUFFIX, dl.hdslb.com, proxy
+DOMAIN-SUFFIX, upos-sz-staticcos.bilivideo.com, reject
+DOMAIN-SUFFIX, appdl-1-drcn.dbankcdn.com, reject
+DOMAIN-SUFFIX, biligame.com, reject
+DOMAIN-SUFFIX, biligame.net, reject
+DOMAIN-SUFFIX, krxd.net, reject
+DOMAIN-SUFFIX, dl.hdslb.com, reject
 
 # 小红书精简并阻止缓存
-#DOMAIN-SUFFIX, fe-static.xhscdn.com, proxy
+#DOMAIN-SUFFIX, fe-static.xhscdn.com, reject
 
 # 滴滴出行 #https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.snippet
-DOMAIN-SUFFIX, gwp.xiaojukeji.com, proxy
+DOMAIN-SUFFIX, gwp.xiaojukeji.com, reject
 
 # 朵朵校友圈去广告
-DOMAIN-SUFFIX, ad.duoduo.link, proxy
+DOMAIN-SUFFIX, ad.duoduo.link, reject
 
 # Pixiv去广告
-DOMAIN-SUFFIX, pixon.ads-pixiv.net, proxy
-DOMAIN-SUFFIX, ads-pixiv.net, proxy
+DOMAIN-SUFFIX, pixon.ads-pixiv.net, reject
+DOMAIN-SUFFIX, ads-pixiv.net, reject
 
 # 向日葵去广告
-DOMAIN-SUFFIX, dm.toutiao.com, proxy
-DOMAIN-SUFFIX, ddns.oray.com, proxy
-DOMAIN-SUFFIX, sl-tk.oray.com, proxy
-DOMAIN-SUFFIX, client-api.oray.com, proxy
-DOMAIN-SUFFIX, push.oray.com, proxy
-DOMAIN-SUFFIX, offline-adv.oray.com, proxy
-DOMAIN-KEYWORD, upload-cdn.orayimg.com, proxy
-DOMAIN-KEYWORD, upload-cdn.orayimg.com-upload-activity, proxy
+DOMAIN-SUFFIX, dm.toutiao.com, reject
+DOMAIN-SUFFIX, ddns.oray.com, reject
+DOMAIN-SUFFIX, sl-tk.oray.com, reject
+DOMAIN-SUFFIX, client-api.oray.com, reject
+DOMAIN-SUFFIX, push.oray.com, reject
+DOMAIN-SUFFIX, offline-adv.oray.com, reject
+DOMAIN-KEYWORD, upload-cdn.orayimg.com, reject
+DOMAIN-KEYWORD, upload-cdn.orayimg.com-upload-activity, reject
 
 # YouTube Web去广告
 AND, ((DOMAIN-SUFFIX, googlevideo.com), (PROTOCOL, UDP)), REJECT-NO-DROP
-DOMAIN-SUFFIX, static.doubleclick.net, proxy
-DOMAIN-SUFFIX, jnn-pa.googleapis.com, proxy
-DOMAIN-SUFFIX, safebrowsing.googleapis-cn.com, proxy
-DOMAIN-SUFFIX, doubleclick.net, proxy
-DOMAIN-KEYWORD, sentry.io, proxy
-DOMAIN-KEYWORD, get_midroll_, proxy
-DOMAIN-KEYWORD, pagead, proxy
-DOMAIN-KEYWORD, googleads, proxy
+DOMAIN-SUFFIX, static.doubleclick.net, reject
+DOMAIN-SUFFIX, jnn-pa.googleapis.com, reject
+DOMAIN-SUFFIX, safebrowsing.googleapis-cn.com, reject
+DOMAIN-SUFFIX, doubleclick.net, reject
+DOMAIN-KEYWORD, sentry.io, reject
+DOMAIN-KEYWORD, get_midroll_, reject
+DOMAIN-KEYWORD, pagead, reject
+DOMAIN-KEYWORD, googleads, reject
 
 [Rewrite]
 
