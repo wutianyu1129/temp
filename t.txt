@@ -1,1 +1,1 @@
-trojan://RBewvGXLQLvKPAZc@win_server_v6.hongdong.online:443?sni=hongdong.online#TrojanNode
+trojan://RBewvGXLQLvKPAZc@win_server_v6.hongdong.online:8443?sni=hongdong.online&allowInsecure=1#zju_cn-win_server
