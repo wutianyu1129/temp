@@ -74,11 +74,11 @@ DOMAIN-KEYWORD, googleads, reject
 ^https:\/\/hd\.xiaojukeji\.com\/d - reject-dict
 
 # YouTube Web去广告
-(^https?:\/\/(?!((r\d-)|manifest))[\w-]+.googlevideo.com\/initplayback.+&oad) - reject-img
+#(^https?:\/\/(?!((r\d-)|manifest))[\w-]+.googlevideo.com\/initplayback.+&oad) - reject-img
 #(^https?:\/\/[\w-]+.googlevideo.com\/.+)(&ctier=L)(&.+) $1$3 302
 #(^https?:\/\/[\w-]+.googlevideo.com\/.+?)&ctier=L(&.+?),ctier(,.+) $1$2$3 302
 #(^https?:\/\/[\w-]+.googlevideo.com\/.+?)(&ctier=L|\/ctier\/L)((&|\/).+?)(,ctier|%2Cctier)((,|%2C).+) $1$3$6 302
-^https?:\/\/youtubei.googleapis.com\/youtubei\/v\d\/player\/ad_break - reject
+#^https?:\/\/youtubei.googleapis.com\/youtubei\/v\d\/player\/ad_break - reject
 #（防止视频播放途中遇到广告播放进度会重置）#https://community.nssurge.com/d/1213-reject/6
 
 
