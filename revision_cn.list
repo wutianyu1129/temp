@@ -2,6 +2,7 @@ DOMAIN-SUFFIX, ipv64.net
 DOMAIN-SUFFIX, hongdong.online
 
 # RVPN
+DOMAIN, speedtest.zju6.edu.cn
 DOMAIN-SUFFIX,rvpn.zju.edu.cn
 DOMAIN-SUFFIX,webvpn.zju.edu.cn
 IP-CIDR,210.32.174.2/32,no-resolve
