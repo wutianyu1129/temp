@@ -45,15 +45,27 @@ DOMAIN-KEYWORD, upload-cdn.orayimg.com, reject
 DOMAIN-KEYWORD, upload-cdn.orayimg.com-upload-activity, reject
 
 # YouTube Web去广告
-AND, ((DOMAIN-SUFFIX, googlevideo.com), (PROTOCOL, UDP)), REJECT-NO-DROP
-DOMAIN-SUFFIX, static.doubleclick.net, reject
-DOMAIN-SUFFIX, jnn-pa.googleapis.com, reject
-DOMAIN-SUFFIX, safebrowsing.googleapis-cn.com, reject
-DOMAIN-SUFFIX, doubleclick.net, reject
-DOMAIN-KEYWORD, sentry.io, reject
-DOMAIN-KEYWORD, get_midroll_, reject
-DOMAIN-KEYWORD, pagead, reject
-DOMAIN-KEYWORD, googleads, reject
+#AND, ((DOMAIN-SUFFIX, googlevideo.com), (PROTOCOL, UDP)), REJECT-NO-DROP
+#DOMAIN-SUFFIX, static.doubleclick.net, reject
+#DOMAIN-SUFFIX, jnn-pa.googleapis.com, reject
+#DOMAIN-SUFFIX, safebrowsing.googleapis-cn.com, reject
+#DOMAIN-SUFFIX, doubleclick.net, reject
+#DOMAIN-KEYWORD, sentry.io, reject
+#DOMAIN-KEYWORD, get_midroll_, reject
+#DOMAIN-KEYWORD, pagead, reject
+#DOMAIN-KEYWORD, googleads, reject
+
+# 其他广告
+DOMAIN-SUFFIX,ads.inmobi.com, reject
+DOMAIN-SUFFIX,tappx.com, reject
+DOMAIN-SUFFIX,criteo.com, reject
+DOMAIN-SUFFIX,pubmatic.com, reject
+DOMAIN-SUFFIX,smaato.net, reject
+DOMAIN-SUFFIX,amazon-adsystem.com, reject
+DOMAIN-SUFFIX,googleads.g.doubleclick.net, reject
+DOMAIN-SUFFIX,adsappier.com, reject
+DOMAIN-SUFFIX,appier.net, reject
+DOMAIN-SUFFIX,appiersig.com, reject
 
 [Rewrite]
 # bilibili精简并阻止缓存
