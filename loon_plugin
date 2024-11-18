@@ -7,7 +7,7 @@
 #!select = 
 #!input = 
 #!raw-url=https://raw.githubusercontent.com/wutianyu1129/Quantumult-X/main/wawa
-#!update：2024.11.11-PM6:00
+#!update：2024.11.18-PM6:00
 
 
 [General]
@@ -26,6 +26,9 @@ DOMAIN-SUFFIX, gwp.xiaojukeji.com, reject
 
 # 朵朵校友圈去广告
 DOMAIN-SUFFIX, ad.duoduo.link, reject
+
+# 防止TG加载转圈
+IP-CIDR,95.161.76.100/31,REJECT-NO-DROP,no-resolve
 
 # Pixiv去广告
 DOMAIN-SUFFIX, pixon.ads-pixiv.net, reject
