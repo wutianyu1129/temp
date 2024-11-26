@@ -27,6 +27,9 @@ DOMAIN-SUFFIX, gwp.xiaojukeji.com, reject
 # 朵朵校友圈去广告
 DOMAIN-SUFFIX, ad.duoduo.link, reject
 
+# 微信去广告 https://kelee.one/Tool/Loon/Plugin/Weixin_Official_Accounts_remove_ads.plugin
+DOMAIN-SUFFIX,wxs.qq.com,REJECT
+
 # 防止TG加载转圈
 IP-CIDR,95.161.76.100/31,REJECT-NO-DROP,no-resolve
 
@@ -128,6 +131,9 @@ DOMAIN-SUFFIX,appiersig.com, reject
 
 # 小红书精简并阻止缓存
 #(?=xhscdn.*\.(otf|OTF|ttf|TTF|zip)) url reject
+
+# 微信去广告 https://kelee.one/Tool/Loon/Plugin/Weixin_Official_Accounts_remove_ads.plugin
+^https:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\? reject-dict
 
 # 滴滴出行 #https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.snippet
 ^https:\/\/hd\.xiaojukeji\.com\/d - reject-dict
