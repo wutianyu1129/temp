@@ -20,6 +20,7 @@ DOMAIN-SUFFIX, biligame.com, reject
 DOMAIN-SUFFIX, biligame.net, reject
 DOMAIN-SUFFIX, krxd.net, reject
 DOMAIN-SUFFIX, dl.hdslb.com, reject
+AND, ((PROTOCOL, STUN), (DOMAIN-KEYWORD, bilibili.)), REJECT
 
 # 滴滴出行 #https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.snippet
 DOMAIN-SUFFIX, gwp.xiaojukeji.com, reject
