@@ -7,7 +7,7 @@
 #!select = 
 #!input = 
 #!raw-url=https://raw.githubusercontent.com/wutianyu1129/Quantumult-X/main/wawa
-#!update：2024.11.26-PM6:00
+#!update：2025.4.18-PM6:00
 
 
 [General]
@@ -145,6 +145,8 @@ DOMAIN-SUFFIX,appiersig.com, reject
 # 向日葵去广告
 ^https:\/\/client-api-v2\.oray\.com\/materials\/SLCC_iOS_DEVICE_FREE\? reject
 
+# > 京东开屏补充
+^https?:\/\/m\.360buyimg\.com\/mobilecms\/s1125x2436_jfs reject-200
 
 [Script]
 # 跳过中间界面，支付宝链接、被封禁链接进行通知弹窗跳转，在微信中用快照显示被封禁的链接（可选），在微信中进行强制重定向（可选），群聊 / 扫码均可使用，可选项可在脚本 2、3 行更改，也可在 BoxJs 中更改 # Author：zZPiglet，原重写地址：https://raw.githubusercontent.com/zZPiglet/Task/master/UnblockURLinWeChat.conf # 修正地址：https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Function/UnblockURLinWeChat.conf
@@ -163,4 +165,4 @@ http-response ^https:\/\/www\.google\.com(?:\.[a-z]+|)\/(?:search\?(?:|.+?&)q=|$
 generic script-path = https://raw.githubusercontent.com/Keywos/rule/master/script/netisp/js/loon.js, tag = 入口落地查询, img-url = network
 
 [MITM]
-hostname = client-api-v2.oray.com, googlevideo.com, youtubei.googleapis.com, weixin110.qq.com, security.wechat.com, mp.weixin.qq.com, hd.xiaojukeji.com, common.diditaxi.com.cn, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, res.xiaojukeji.com, conf.diditaxi.com.cn, oauth.secure.pixiv.net, app-api.pixiv.net, www.google.com*, api.pinduoduo.com, oauth.secure.pixiv.net
+hostname = m.360buyimg.com, client-api-v2.oray.com, googlevideo.com, youtubei.googleapis.com, weixin110.qq.com, security.wechat.com, mp.weixin.qq.com, hd.xiaojukeji.com, common.diditaxi.com.cn, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, res.xiaojukeji.com, conf.diditaxi.com.cn, oauth.secure.pixiv.net, app-api.pixiv.net, www.google.com*, api.pinduoduo.com, oauth.secure.pixiv.net
