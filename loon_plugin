@@ -7,27 +7,27 @@
 #!select = 
 #!input = 
 #!raw-url=https://raw.githubusercontent.com/wutianyu1129/Quantumult-X/main/wawa
-#!update：2025.5.7-PM9:00
+#!update：2025.5.7-PM1:43
 
 
 [General]
 
 [Rule]
 # bilibili精简并阻止缓存
-DOMAIN-SUFFIX, upos-sz-staticcos.bilivideo.com, reject
-DOMAIN-SUFFIX, appdl-1-drcn.dbankcdn.com, reject
-DOMAIN-SUFFIX, data.bilibili.com, reject
-DOMAIN-SUFFIX, biligame.com, reject
-DOMAIN-SUFFIX, biligame.net, reject
-DOMAIN-SUFFIX, krxd.net, reject
-DOMAIN-SUFFIX, dl.hdslb.com, reject
+DOMAIN-SUFFIX, upos-sz-staticcos.bilivideo.com, REJECT
+DOMAIN-SUFFIX, appdl-1-drcn.dbankcdn.com, REJECT  
+DOMAIN-SUFFIX, data.bilibili.com, REJECT
+DOMAIN-SUFFIX, biligame.com, REJECT
+DOMAIN-SUFFIX, biligame.net, REJECT
+DOMAIN-SUFFIX, krxd.net, REJECT
+DOMAIN-SUFFIX, dl.hdslb.com, REJECT
 AND, ((PROTOCOL, STUN), (DOMAIN-KEYWORD, bilibili.)), REJECT
 
 # 滴滴出行 #https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.snippet
-DOMAIN-SUFFIX, gwp.xiaojukeji.com, reject
+DOMAIN-SUFFIX, gwp.xiaojukeji.com, REJECT
 
 # 朵朵校友圈去广告
-DOMAIN-SUFFIX, ad.duoduo.link, reject
+DOMAIN-SUFFIX, ad.duoduo.link, REJECT
 
 # 微信去广告 https://kelee.one/Tool/Loon/Plugin/Weixin_Official_Accounts_remove_ads.plugin
 DOMAIN-SUFFIX,wxs.qq.com,REJECT
@@ -36,18 +36,18 @@ DOMAIN-SUFFIX,wxs.qq.com,REJECT
 IP-CIDR,95.161.76.100/31,REJECT-NO-DROP,no-resolve
 
 # Pixiv去广告
-DOMAIN-SUFFIX, pixon.ads-pixiv.net, reject
-DOMAIN-SUFFIX, ads-pixiv.net, reject
+DOMAIN-SUFFIX, pixon.ads-pixiv.net, REJECT
+DOMAIN-SUFFIX, ads-pixiv.net, REJECT
 
 # 向日葵去广告
-DOMAIN-SUFFIX, dm.toutiao.com, reject
-DOMAIN-SUFFIX, ddns.oray.com, reject
-DOMAIN-SUFFIX, sl-tk.oray.com, reject
-DOMAIN-SUFFIX, client-api.oray.com, reject
-DOMAIN-SUFFIX, push.oray.com, reject
-DOMAIN-SUFFIX, offline-adv.oray.com, reject
-DOMAIN-KEYWORD, upload-cdn.orayimg.com, reject
-DOMAIN-KEYWORD, upload-cdn.orayimg.com-upload-activity, reject
+DOMAIN-SUFFIX, dm.toutiao.com, REJECT
+DOMAIN-SUFFIX, ddns.oray.com, REJECT
+DOMAIN-SUFFIX, sl-tk.oray.com, REJECT
+DOMAIN-SUFFIX, client-api.oray.com, REJECT
+DOMAIN-SUFFIX, push.oray.com, REJECT
+DOMAIN-SUFFIX, offline-adv.oray.com, REJECT
+DOMAIN-KEYWORD, upload-cdn.orayimg.com, REJECT
+DOMAIN-KEYWORD, upload-cdn.orayimg.com-upload-activity, REJECT
 
 DOMAIN, mobads.baidu.com, REJECT
 DOMAIN, cnlogs.umeng.com, REJECT
@@ -112,42 +112,42 @@ DOMAIN-KEYWORD, log-api.pangolin-sdk-toutiao, REJECT
 DOMAIN-KEYWORD, -ad.byteoversea.com, REJECT
 DOMAIN-KEYWORD, video-cn.snssdk.com, REJECT
 DOMAIN-KEYWORD, asiad.byteactivity, REJECT
-DOMAIN-SUFFIX,ads.inmobi.com, reject
-DOMAIN-SUFFIX,tappx.com, reject
-DOMAIN-SUFFIX,criteo.com, reject
-DOMAIN-SUFFIX,pubmatic.com, reject
-DOMAIN-SUFFIX,smaato.net, reject
-DOMAIN-SUFFIX,amazon-adsystem.com, reject
-DOMAIN-SUFFIX,googleads.g.doubleclick.net, reject
-DOMAIN-SUFFIX,adsappier.com, reject
-DOMAIN-SUFFIX,appier.net, reject
-DOMAIN-SUFFIX,appiersig.com, reject
+DOMAIN-SUFFIX,ads.inmobi.com, REJECT
+DOMAIN-SUFFIX,tappx.com, REJECT
+DOMAIN-SUFFIX,criteo.com, REJECT
+DOMAIN-SUFFIX,pubmatic.com, REJECT
+DOMAIN-SUFFIX,smaato.net, REJECT
+DOMAIN-SUFFIX,amazon-adsystem.com, REJECT
+DOMAIN-SUFFIX,googleads.g.doubleclick.net, REJECT
+DOMAIN-SUFFIX,adsappier.com, REJECT
+DOMAIN-SUFFIX,appier.net, REJECT
+DOMAIN-SUFFIX,appiersig.com, REJECT
 
 [Rewrite]
 # bilibili精简并阻止缓存
-(?=resource\?resourceUrl|upos\-sz\-staticcos) url reject
-(?=.*(hdslb\.com.*(\.zip|\.mp4)))^((?!(hdslb\.com\/bfs\/app-static\/)).)*$ url reject
-^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords - reject
-^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.view\.v1\.View\/TFInfo - reject
-^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\? - reject-dict
+(?=resource\?resourceUrl|upos\-sz\-staticcos) url REJECT
+(?=.*(hdslb\.com.*(\.zip|\.mp4)))^((?!(hdslb\.com\/bfs\/app-static\/)).)*$ url REJECT
+^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords - REJECT
+^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.view\.v1\.View\/TFInfo - REJECT
+^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\? - REJECT-DICT
 
 # 小红书精简并阻止缓存
-#(?=xhscdn.*\.(otf|OTF|ttf|TTF|zip)) url reject
+#(?=xhscdn.*\.(otf|OTF|ttf|TTF|zip)) url REJECT
 
 # 微信去广告 https://kelee.one/Tool/Loon/Plugin/Weixin_Official_Accounts_remove_ads.plugin
-^https:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\? reject-dict
+^https:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\? REJECT-DICT
 
 # 滴滴出行 #https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.snippet
-^https:\/\/hd\.xiaojukeji\.com\/d - reject-dict
+^https:\/\/hd\.xiaojukeji\.com\/d - REJECT-DICT
 
 # YouTube Web去广告
 ^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad REJECT-IMG
 
 # 向日葵去广告
-^https:\/\/client-api-v2\.oray\.com\/materials\/SLCC_iOS_DEVICE_FREE\? reject
+^https:\/\/client-api-v2\.oray\.com\/materials\/SLCC_iOS_DEVICE_FREE\? REJECT
 
 # 京东开屏补充
-^https?:\/\/m\.360buyimg\.com\/mobilecms\/s1125x2436_jfs reject-200
+^https?:\/\/m\.360buyimg\.com\/mobilecms\/s1125x2436_jfs REJECT-DICT
 
 # 解决github速率限制返回429问题
 ^https://.*\.githubusercontent\.com\/ header-replace Accept-Language en-us
