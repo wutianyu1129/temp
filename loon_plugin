@@ -7,12 +7,18 @@
 #!select = 
 #!input = 
 #!raw-url=https://raw.githubusercontent.com/wutianyu1129/Quantumult-X/main/wawa
-#!update：2025.5.7-PM1:43
+#!update：2025.5.7-PM6:43
 
 
 [General]
 
 [Rule]
+
+[Rule]
+# CC98水印去除
+URL-REGEX,^data:image/svg(\+xml|%2bxml).*?fill-opacity=['"%]?0\.015.*?font-family=['"][^'"]*JetBrains%20Mono%2cLiberation%20Mono,REJECT
+URL-REGEX,^data:image/svg(\+xml|%2bxml).*?viewBox=['"]0 0 480 100['"].*?width=['"]480['"].*?height=['"]100['"],REJECT
+
 # bilibili精简并阻止缓存
 DOMAIN-SUFFIX, upos-sz-staticcos.bilivideo.com, REJECT
 DOMAIN-SUFFIX, appdl-1-drcn.dbankcdn.com, REJECT  
