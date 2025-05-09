@@ -16,8 +16,8 @@
 
 [Rule]
 # CC98水印去除
-URL-REGEX,^data:image/svg(\+xml|%2bxml).*?fill-opacity=['"%]?0\.015.*?font-family=['"][^'"]*JetBrains%20Mono%2cLiberation%20Mono,REJECT
-URL-REGEX,^data:image/svg(\+xml|%2bxml).*?viewBox=['"]0 0 480 100['"].*?width=['"]480['"].*?height=['"]100['"],REJECT
+#URL-REGEX,^data:image/svg(\+xml|%2bxml).*?fill-opacity=['"%]?0\.015.*?font-family=['"][^'"]*JetBrains%20Mono%2cLiberation%20Mono,REJECT
+#URL-REGEX,^data:image/svg(\+xml|%2bxml).*?viewBox=['"]0 0 480 100['"].*?width=['"]480['"].*?height=['"]100['"],REJECT
 
 # bilibili精简并阻止缓存
 DOMAIN-SUFFIX, upos-sz-staticcos.bilivideo.com, REJECT
@@ -142,6 +142,8 @@ DOMAIN-SUFFIX,appiersig.com, REJECT
 
 # 微信去广告 https://kelee.one/Tool/Loon/Plugin/Weixin_Official_Accounts_remove_ads.plugin
 ^https:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\? REJECT-DICT
+# 移除微信公众号文章底栏都在搜
+^https:\/\/mp\.weixin\.qq\.com\/mp\/relatedsearchword reject-dict
 
 # 滴滴出行 #https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.snippet
 ^https:\/\/hd\.xiaojukeji\.com\/d - REJECT-DICT
