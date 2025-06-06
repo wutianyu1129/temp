@@ -7,14 +7,15 @@
 #!select = 
 #!input = 
 #!raw-url=https://raw.githubusercontent.com/wutianyu1129/Quantumult-X/main/wawa
-#!update：2025.5.7-PM6:43
-
-
-[General]
+#!update：2025.6.6-PM1:43
 
 [Rule]
 
-[Rule]
+# 微信广告去除
+DOMAIN,wxa.wxs.qq.com,REJECT
+DOMAIN,wximg.wxs.qq.com,REJECT
+DOMAIN,wxsmw.wxs.qq.com,REJECT
+
 # CC98水印去除
 #URL-REGEX,^data:image/svg(\+xml|%2bxml).*?fill-opacity=['"%]?0\.015.*?font-family=['"][^'"]*JetBrains%20Mono%2cLiberation%20Mono,REJECT
 #URL-REGEX,^data:image/svg(\+xml|%2bxml).*?viewBox=['"]0 0 480 100['"].*?width=['"]480['"].*?height=['"]100['"],REJECT
@@ -179,4 +180,4 @@ http-response ^https:\/\/www\.google\.com(?:\.[a-z]+|)\/(?:search\?(?:|.+?&)q=|$
 generic script-path = https://raw.githubusercontent.com/Keywos/rule/master/script/netisp/js/loon.js, tag = 入口落地查询, img-url = network
 
 [MITM]
-hostname = *.githubusercontent.com, raw.githubusercontent.com, gist.githubusercontent.com, github.com, m.360buyimg.com, client-api-v2.oray.com, googlevideo.com, youtubei.googleapis.com, weixin110.qq.com, security.wechat.com, mp.weixin.qq.com, hd.xiaojukeji.com, common.diditaxi.com.cn, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, res.xiaojukeji.com, conf.diditaxi.com.cn, oauth.secure.pixiv.net, app-api.pixiv.net, www.google.com*, api.pinduoduo.com, oauth.secure.pixiv.net
+hostname = wxa.wxs.qq.com, wximg.wxs.qq.com, wxsmw.wxs.qq.com, *.githubusercontent.com, raw.githubusercontent.com, gist.githubusercontent.com, github.com, m.360buyimg.com, client-api-v2.oray.com, googlevideo.com, youtubei.googleapis.com, weixin110.qq.com, security.wechat.com, mp.weixin.qq.com, hd.xiaojukeji.com, common.diditaxi.com.cn, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, res.xiaojukeji.com, conf.diditaxi.com.cn, oauth.secure.pixiv.net, app-api.pixiv.net, www.google.com*, api.pinduoduo.com, oauth.secure.pixiv.net
