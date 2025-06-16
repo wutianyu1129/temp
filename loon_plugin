@@ -7,37 +7,29 @@
 #!select = 
 #!input = 
 #!raw-url=https://raw.githubusercontent.com/wutianyu1129/Quantumult-X/main/wawa
-#!update：2025.6.6-PM1:43
+#!update：2025.6.16-PM1:43
 
 [Rule]
-
-# 微信广告去除
-DOMAIN,wxa.wxs.qq.com,REJECT
-DOMAIN,wximg.wxs.qq.com,REJECT
-DOMAIN,wxsmw.wxs.qq.com,REJECT
 
 # CC98水印去除
 #URL-REGEX,^data:image/svg(\+xml|%2bxml).*?fill-opacity=['"%]?0\.015.*?font-family=['"][^'"]*JetBrains%20Mono%2cLiberation%20Mono,REJECT
 #URL-REGEX,^data:image/svg(\+xml|%2bxml).*?viewBox=['"]0 0 480 100['"].*?width=['"]480['"].*?height=['"]100['"],REJECT
 
 # bilibili精简并阻止缓存
-DOMAIN-SUFFIX, upos-sz-staticcos.bilivideo.com, REJECT
-DOMAIN-SUFFIX, appdl-1-drcn.dbankcdn.com, REJECT  
-DOMAIN-SUFFIX, data.bilibili.com, REJECT
-DOMAIN-SUFFIX, biligame.com, REJECT
-DOMAIN-SUFFIX, biligame.net, REJECT
-DOMAIN-SUFFIX, krxd.net, REJECT
-DOMAIN-SUFFIX, dl.hdslb.com, REJECT
-AND, ((PROTOCOL, STUN), (DOMAIN-KEYWORD, bilibili.)), REJECT
+#DOMAIN-SUFFIX, upos-sz-staticcos.bilivideo.com, REJECT
+#DOMAIN-SUFFIX, appdl-1-drcn.dbankcdn.com, REJECT  
+#DOMAIN-SUFFIX, data.bilibili.com, REJECT
+#DOMAIN-SUFFIX, biligame.com, REJECT
+#DOMAIN-SUFFIX, biligame.net, REJECT
+#DOMAIN-SUFFIX, krxd.net, REJECT
+#DOMAIN-SUFFIX, dl.hdslb.com, REJECT
+#AND, ((PROTOCOL, STUN), (DOMAIN-KEYWORD, bilibili.)), REJECT
 
 # 滴滴出行 #https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.snippet
 DOMAIN-SUFFIX, gwp.xiaojukeji.com, REJECT
 
 # 朵朵校友圈去广告
 DOMAIN-SUFFIX, ad.duoduo.link, REJECT
-
-# 微信去广告 https://kelee.one/Tool/Loon/Plugin/Weixin_Official_Accounts_remove_ads.plugin
-DOMAIN-SUFFIX,wxs.qq.com,REJECT
 
 # 防止TG加载转圈
 IP-CIDR,95.161.76.100/31,REJECT-NO-DROP,no-resolve
@@ -132,19 +124,14 @@ DOMAIN-SUFFIX,appiersig.com, REJECT
 
 [Rewrite]
 # bilibili精简并阻止缓存
-(?=resource\?resourceUrl|upos\-sz\-staticcos) url REJECT
-(?=.*(hdslb\.com.*(\.zip|\.mp4)))^((?!(hdslb\.com\/bfs\/app-static\/)).)*$ url REJECT
-^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords - REJECT
-^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.view\.v1\.View\/TFInfo - REJECT
-^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\? - REJECT-DICT
+#(?=resource\?resourceUrl|upos\-sz\-staticcos) url REJECT
+#(?=.*(hdslb\.com.*(\.zip|\.mp4)))^((?!(hdslb\.com\/bfs\/app-static\/)).)*$ url REJECT
+#^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords - REJECT
+#^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.view\.v1\.View\/TFInfo - REJECT
+#^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v\d\/ecommerce-user\/get_shopping_info\? - REJECT-DICT
 
 # 小红书精简并阻止缓存
 #(?=xhscdn.*\.(otf|OTF|ttf|TTF|zip)) url REJECT
-
-# 微信去广告 https://kelee.one/Tool/Loon/Plugin/Weixin_Official_Accounts_remove_ads.plugin
-^https:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\? REJECT-DICT
-# 移除微信公众号文章底栏都在搜
-^https:\/\/mp\.weixin\.qq\.com\/mp\/relatedsearchword reject-dict
 
 # 滴滴出行 #https://raw.githubusercontent.com/ZenmoFeiShi/Qx/main/Didichuxing.snippet
 ^https:\/\/hd\.xiaojukeji\.com\/d - REJECT-DICT
@@ -159,17 +146,11 @@ DOMAIN-SUFFIX,appiersig.com, REJECT
 ^https?:\/\/m\.360buyimg\.com\/mobilecms\/s1125x2436_jfs REJECT-DICT
 
 # 解决github速率限制返回429问题
-^https://.*\.githubusercontent\.com\/ header-replace Accept-Language en-us
-^https:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace Accept-Language en-us
-^https:\/\/github\.com\/ header-replace Accept-Language en-us
+#^https://.*\.githubusercontent\.com\/ header-replace Accept-Language en-us
+#^https:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace Accept-Language en-us
+#^https:\/\/github\.com\/ header-replace Accept-Language en-us
 
 [Script]
-# 跳过中间界面，支付宝链接、被封禁链接进行通知弹窗跳转，在微信中用快照显示被封禁的链接（可选），在微信中进行强制重定向（可选），群聊 / 扫码均可使用，可选项可在脚本 2、3 行更改，也可在 BoxJs 中更改 # Author：zZPiglet，原重写地址：https://raw.githubusercontent.com/zZPiglet/Task/master/UnblockURLinWeChat.conf # 修正地址：https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Function/UnblockURLinWeChat.conf
-http-response ^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\? script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/weixin110.js, requires-body=true, timeout=60, tag=weixin110
-
-# 微信去广告[不包含公众号信息流AD、朋友圈AD][推荐开启青少年模式可去除朋友圈AD]
-http-response ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/scripts/replace-body.js, requires-body=true, timeout=30, tag=replaceBody, argument=weixin
-
 # Pixiv
 http-response ^https?:\/\/oauth\.secure\.pixiv\.net\/(auth\/token) script-path=https://github.com/ddgksf2013/Scripts/raw/master/pixivAds.js, requires-body=true, timeout=60, tag=pixivAds
 
@@ -177,7 +158,8 @@ http-response ^https?:\/\/oauth\.secure\.pixiv\.net\/(auth\/token) script-path=h
 http-response ^https:\/\/www\.google\.com(?:\.[a-z]+|)\/(?:search\?(?:|.+?&)q=|$) requires-body=1,timeout=30,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/Google_CAPTCHA.js,tag=Google人机验证
 
 # 节点入口落地查询 https://raw.githubusercontent.com/Keywos/rule/main/script/netisp/netisp.plugin
-generic script-path = https://raw.githubusercontent.com/Keywos/rule/master/script/netisp/js/loon.js, tag = 入口落地查询, img-url = network
+#generic script-path = https://raw.githubusercontent.com/Keywos/rule/master/script/netisp/js/loon.js, tag = 入口落地查询, img-url = network
 
 [MITM]
-hostname = wxa.wxs.qq.com, wximg.wxs.qq.com, wxsmw.wxs.qq.com, *.githubusercontent.com, raw.githubusercontent.com, gist.githubusercontent.com, github.com, m.360buyimg.com, client-api-v2.oray.com, googlevideo.com, youtubei.googleapis.com, weixin110.qq.com, security.wechat.com, mp.weixin.qq.com, hd.xiaojukeji.com, common.diditaxi.com.cn, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, res.xiaojukeji.com, conf.diditaxi.com.cn, oauth.secure.pixiv.net, app-api.pixiv.net, www.google.com*, api.pinduoduo.com, oauth.secure.pixiv.net
+hostname = m.360buyimg.com, client-api-v2.oray.com, googlevideo.com, youtubei.googleapis.com, hd.xiaojukeji.com, common.diditaxi.com.cn, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, res.xiaojukeji.com, conf.diditaxi.com.cn, oauth.secure.pixiv.net, app-api.pixiv.net, www.google.com*, api.pinduoduo.com, oauth.secure.pixiv.net
+# *.githubusercontent.com, raw.githubusercontent.com, gist.githubusercontent.com, github.com, weixin110.qq.com, security.wechat.com, mp.weixin.qq.com,
