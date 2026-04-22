@@ -1,0 +1,680 @@
+# Name: wuliwala_c
+# UpdateTime: 2026/4/22-PM/6:22
+
+port: 7890
+socks-port: 7891
+redir-port: 7892
+tproxy-port: 7893
+mode: rule
+log-level: info
+ipv6: true
+allow-lan: true
+external-controller: 127.0.0.1:9090
+
+bypass:
+  - localhost
+  - 127.*
+  - 10.*
+  - 192.168.*
+  - ...
+
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  ipv6: true
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+  fallback:
+    - 223.5.5.5
+    - 119.29.29.29
+    - 1.1.1.1
+    - 8.8.8.8
+
+proxy-providers:
+  机场·订阅·A:
+    type: http
+    path: ./profiles/proxies/flowercloud-ss.yaml
+    url: "https://api.xmancdn.net/osubscribe.php?token2=xqk33vkq-1b7aa364938y6g6vxi&sip002=1"
+    interval: 21600
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 21600
+  机场·订阅·B:
+    type: http
+    path: ./profiles/proxies/wawa.yaml
+    url: "https://raw.githubusercontent.com/wutianyu1129/temp/main/t"
+    interval: 21600
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 21600
+
+proxy-groups:  
+# 场景
+  - name: "全球·场景"
+    type: select
+    proxies:
+      - "全球·策略"
+  - name: "大陆·场景"
+    type: select
+    proxies:
+      - "大陆·策略"
+  - name: "香港·场景"
+    type: select
+    proxies:
+      - "香港·策略"
+  - name: "台湾·场景"
+    type: select
+    proxies:
+      - "台湾·策略"
+  - name: "日本·场景"
+    type: select
+    proxies:
+      - "日本·策略"
+  - name: "韩国·场景"
+    type: select
+    proxies:
+      - "韩国·策略"
+  - name: "新国·场景"
+    type: select
+    proxies:
+      - "新国·策略"
+  - name: "美国·场景"
+    type: select
+    proxies:
+      - "美国·策略"
+  - name: "直连·场景"
+    type: select
+    proxies:
+      - "直连·策略"
+  - name: "拒绝·场景"
+    type: select
+    proxies:
+      - "拒绝·策略"
+
+# 策略
+  - name: "全球·策略"
+    type: select
+    proxies:
+      - "全球·延时优选"
+      - "全球·故障转移"
+      - "全球·负载均衡"
+      - "全球·手动选择"
+  - name: "大陆·策略"
+    type: select
+    proxies:
+      - "大陆·延时优选"
+      - "大陆·故障转移"
+      - "大陆·负载均衡"
+      - "大陆·手动选择"
+  - name: "香港·策略"
+    type: select
+    proxies:
+      - "香港·延时优选"
+      - "香港·故障转移"
+      - "香港·负载均衡"
+      - "香港·手动选择"
+  - name: "台湾·策略"
+    type: select
+    proxies:
+      - "台湾·延时优选"
+      - "台湾·故障转移"
+      - "台湾·负载均衡"
+      - "台湾·手动选择"
+  - name: "日本·策略"
+    type: select
+    proxies:
+      - "日本·延时优选"
+      - "日本·故障转移"
+      - "日本·负载均衡"
+      - "日本·手动选择"
+  - name: "韩国·策略"
+    type: select
+    proxies:
+      - "韩国·延时优选"
+      - "韩国·故障转移"
+      - "韩国·负载均衡"
+      - "韩国·手动选择"
+  - name: "新国·策略"
+    type: select
+    proxies:
+      - "新国·延时优选"
+      - "新国·故障转移"
+      - "新国·负载均衡"
+      - "新国·手动选择"
+  - name: "美国·策略"
+    type: select
+    proxies:
+      - "美国·延时优选"
+      - "美国·故障转移"
+      - "美国·负载均衡"
+      - "美国·手动选择"
+  - name: "直连·策略"
+    type: select
+    proxies:
+      - "直连·延时优选"
+      - "直连·故障转移"
+      - "直连·负载均衡"
+      - "直连·手动选择"
+  - name: "拒绝·策略"
+    type: select
+    proxies:
+      - "拒绝·延时优选"
+      - "拒绝·故障转移"
+      - "拒绝·负载均衡"
+      - "拒绝·手动选择"
+
+# 延时优选
+  - name: "全球·延时优选"
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    lazy: true
+    tolerance: 100
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*(.*))(?!.*((?i)邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|恢复|过期|已用|联系|邮箱|工单|群|贩卖|通知|倒卖|防止|国内|🎮|TG|tg|\b(GAME|USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b)).*$"
+  - name: "大陆·延时优选"
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    lazy: true
+    tolerance: 100
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)大陆|(\b(China)\b)))(?!.*((?i)校园)).*$"
+  - name: "香港·延时优选"
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    lazy: true
+    tolerance: 100
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "台湾·延时优选"
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    lazy: true
+    tolerance: 100
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "日本·延时优选"
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    lazy: true
+    tolerance: 100
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|Japan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "韩国·延时优选"
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    lazy: true
+    tolerance: 100
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|Korea)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "新国·延时优选"
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    lazy: true
+    tolerance: 100
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "美国·延时优选"
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    lazy: true
+    tolerance: 100
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|United States)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "直连·延时优选"
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    lazy: true
+    tolerance: 100
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)直连|(\b(AD)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "拒绝·延时优选"
+    type: url-test
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    lazy: true
+    tolerance: 100
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)广告|(\b(AD)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+
+# 故障转移
+  - name: "全球·故障转移"
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    max-fail: 3
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*(.*))(?!.*((?i)邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|恢复|过期|已用|联系|邮箱|工单|群|贩卖|通知|倒卖|防止|国内|🎮|TG|tg|\b(GAME|USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b)).*$"
+  - name: "大陆·故障转移"
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    max-fail: 3
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)大陆|(\b(China)\b)))(?!.*((?i)校园)).*$"
+  - name: "香港·故障转移"
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    max-fail: 3
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "台湾·故障转移"
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    max-fail: 3
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "日本·故障转移"
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    max-fail: 3
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|Japan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "韩国·故障转移"
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    max-fail: 3
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|Korea)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "新国·故障转移"
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    max-fail: 3
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "美国·故障转移"
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    max-fail: 3
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|United States)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "直连·故障转移"
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    max-fail: 3
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)直连|(\b(AD)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "拒绝·故障转移"
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    max-fail: 3
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)广告|(\b(AD)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+
+# 负载均衡
+  - name: "全球·负载均衡"
+    type: load-balance
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    strategy: round-robin
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*(.*))(?!.*((?i)邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|恢复|过期|已用|联系|邮箱|工单|群|贩卖|通知|倒卖|防止|国内|🎮|TG|tg|\b(GAME|USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b)).*$"
+  - name: "大陆·负载均衡"
+    type: load-balance
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    strategy: round-robin
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)大陆|(\b(China)\b)))(?!.*((?i)校园)).*$"
+  - name: "香港·负载均衡"
+    type: load-balance
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    strategy: round-robin
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "台湾·负载均衡"
+    type: load-balance
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    strategy: round-robin
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "日本·负载均衡"
+    type: load-balance
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    strategy: round-robin
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|Japan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "韩国·负载均衡"
+    type: load-balance
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    strategy: round-robin
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|Korea)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "新国·负载均衡"
+    type: load-balance
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    strategy: round-robin
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "美国·负载均衡"
+    type: load-balance
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    strategy: round-robin
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|United States)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "直连·负载均衡"
+    type: load-balance
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    strategy: round-robin
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)直连|(\b(AD)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+  - name: "拒绝·负载均衡"
+    type: load-balance
+    url: http://cp.cloudflare.com/generate_204
+    interval: 21600
+    strategy: round-robin
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)广告|(\b(AD)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+
+# 手动选择
+  - name: "全球·手动选择"
+    type: select
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*(.*))(?!.*((?i)邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|恢复|过期|已用|联系|邮箱|工单|群|贩卖|通知|倒卖|防止|国内|🎮|TG|tg|\b(GAME|USE|USED|TOTAL|EXPIRE|EMAIL|Panel)\b)).*$"
+    proxies:
+      - DIRECT
+      - REJECT
+  - name: "大陆·手动选择"
+    type: select
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)大陆|(\b(China)\b)))(?!.*((?i)校园)).*$"
+    proxies:
+      - DIRECT
+      - REJECT
+  - name: "香港·手动选择"
+    type: select
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+    proxies:
+      - DIRECT
+      - REJECT
+  - name: "台湾·手动选择"
+    type: select
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+    proxies:
+      - DIRECT
+      - REJECT
+  - name: "日本·手动选择"
+    type: select
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|Japan)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+    proxies:
+      - DIRECT
+      - REJECT
+  - name: "韩国·手动选择"
+    type: select
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|Korea)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+    proxies:
+      - DIRECT
+      - REJECT
+  - name: "新国·手动选择"
+    type: select
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+    proxies:
+      - DIRECT
+      - REJECT
+  - name: "美国·手动选择"
+    type: select
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|United States)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+    proxies:
+      - DIRECT
+      - REJECT
+  - name: "直连·手动选择"
+    type: select
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)直连|(\b(AD)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+    proxies:
+      - DIRECT
+      - REJECT
+  - name: "拒绝·手动选择"
+    type: select
+    use:
+      - "机场·订阅·A"
+      - "机场·订阅·B"
+    filter: "^(?=.*((?i)广告|(\b(AD)\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+    proxies:
+      - DIRECT
+      - REJECT
+
+rule-providers:
+# 远程规则
+  Advertising:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-clash.yaml"
+    path: ./ruleset/advertising.yaml
+    interval: 86400
+  ZJU:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/wutianyu1129/temp/refs/heads/main/ZJU.list"
+    path: ./ruleset/zju.yaml
+    interval: 86400
+  Apple:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml"
+    path: ./ruleset/apple.yaml
+    interval: 86400
+  WeChat:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/WeChat/WeChat.yaml"
+    path: ./ruleset/wechat.yaml
+    interval: 86400
+  Speedtest:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest.yaml"
+    path: ./ruleset/speedtest.yaml
+    interval: 86400
+  YouTube:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml"
+    path: ./ruleset/youtube.yaml
+    interval: 86400
+  Google:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml"
+    path: ./ruleset/google.yaml
+    interval: 86400
+  GitHub:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml"
+    path: ./ruleset/github.yaml
+    interval: 86400
+  OpenAI:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml"
+    path: ./ruleset/openai.yaml
+    interval: 86400
+  X:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml"
+    path: ./ruleset/twitter.yaml
+    interval: 86400
+  TikTok:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml"
+    path: ./ruleset/tiktok.yaml
+    interval: 86400
+  Telegram:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml"
+    path: ./ruleset/telegram.yaml
+    interval: 86400
+  Spotify:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml"
+    path: ./ruleset/spotify.yaml
+    interval: 86400
+  Disney:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.yaml"
+    path: ./ruleset/disney.yaml
+    interval: 86400
+  Netflix:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml"
+    path: ./ruleset/netflix.yaml
+    interval: 86400
+  PayPal:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/PayPal/PayPal.yaml"
+    path: ./ruleset/paypal.yaml
+    interval: 86400
+  Claude:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml"
+    path: ./ruleset/claude.yaml
+    interval: 86400
+  China:
+    type: http
+    behavior: classical
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml"
+    path: ./ruleset/china.yaml
+    interval: 86400
+
+# 分流规则
+rules:
+  - RULE-SET, China, 大陆·场景
+  - RULE-SET, ZJU, 大陆·场景
+  - RULE-SET, Apple, 大陆·场景
+  - RULE-SET, WeChat, 大陆·场景
+  - RULE-SET, Speedtest, 大陆·场景
+  - RULE-SET, YouTube, 全球·场景
+  - RULE-SET, Google, 全球·场景
+  - RULE-SET, GitHub, 全球·场景
+  - RULE-SET, OpenAI, 全球·场景
+  - RULE-SET, X, 全球·场景
+  - RULE-SET, TikTok, 全球·场景
+  - RULE-SET, Telegram, 全球·场景
+  - RULE-SET, Spotify, 全球·场景
+  - RULE-SET, Disney, 全球·场景
+  - RULE-SET, Netflix, 全球·场景
+  - RULE-SET, PayPal, 全球·场景
+  - RULE-SET, Claude, 全球·场景
+  - RULE-SET, Advertising, REJECT
+  - MATCH, 全球·场景
