@@ -1,0 +1,324 @@
+# Name           Loon_wuty
+# Author         Wuty-zju
+# UpdateTime     2025/12/13-PM/11:55
+# URL            https://github.com/wutianyu1129/Quantumult-X/main/Loon_wuty
+
+[General]
+ipv6-vif = auto
+ip-mode = dual
+doh3-server = https://dns.alidns.com/dns-query, https://doh.pub/dns-query, https://cloudflare-dns.com/dns-query, https://dns.google/dns-query
+doh-server = https://dns.alidns.com/dns-query, https://doh.pub/dns-query, https://cloudflare-dns.com/dns-query, https://dns.google/dns-query
+dns-server = 223.5.5.5, 2400:3200::1, 119.29.29.29, 2402:4e00::, 1.1.1.1, 2606:4700:4700::1111, 8.8.8.8, 2001:4860:4860::8888
+allow-wifi-access = false
+mitm-on-wifi-access = false
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+proxy-test-url = http://cp.cloudflare.com/generate_204
+internet-test-url = http://www.apple.com/library/test/success.html
+test-timeout = 3
+interface-mode = auto
+sni-sniffing = true
+disconnect-on-policy-change = true
+domain-reject-mode = DNS
+dns-reject-mode = LoopbackIP
+udp-fallback-mode = REJECT
+resource-parser = https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-parser.loon.min.js
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local
+bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32
+
+[Proxy]
+
+[Remote Proxy]
+# 订阅
+花云·订阅 = https://raw.githubusercontent.com/wutianyu1129/temp/refs/heads/main/fl-1, udp = true, block-quic = false, fast-open = default, vmess-aead = true, skip-cert-verify = true, flexible-sni = false, enabled = true
+花云·订阅 = https://raw.githubusercontent.com/wutianyu1129/temp/refs/heads/main/fl-2, udp = true, block-quic = false, fast-open = default, vmess-aead = true, skip-cert-verify = true, flexible-sni = false, enabled = false
+备用·订阅 = https://jdddf.stc-spare2.com/link/xYHXCBq2EJlLuZyc?sub=3, udp = true, block-quic = false, fast-open = default, vmess-aead = true, skip-cert-verify = true, flexible-sni = false, enabled = false
+蛙蛙·订阅 = https://raw.githubusercontent.com/wutianyu1129/temp/main/t, udp = true, block-quic = false, fast-open = default, vmess-aead = true, skip-cert-verify = true, flexible-sni = false, enabled = true
+
+[Remote Filter]
+# 节点
+全球·节点 = NameRegex, FilterKey = "^(?=.*)(?!.*(邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|恢复|过期|已用|联系|邮箱|Traffic|工单|群|贩卖|通知|倒卖|防止|国内|校园|实验|实验性|游戏|🎮|TG|GAME|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|CN|China|zju|zju_cn)).+$"
+大陆·节点 = NameRegex, FilterKey = "^(?=.*((?i)大陆|回国|(\b(CN|China|cn|zju|zju(_cn)?)\b)))(?!.*((?i)校园)).*$"
+浙大·节点 = NameRegex, FilterKey = "^(?=.*((?i)浙大|(\b(zju(_cn)?)\b)))(?!.*((?i)校园)).*$"
+香港·节点 = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|Hong)\b)))(?!.*((?i)回国|校园|实验|游戏|🎮|(\b(GAME)\b))).*$"
+台湾·节点 = NameRegex, FilterKey = "^(?=.*((?i)🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)))(?!.*((?i)回国|校园|实验|游戏|🎮|(\b(GAME)\b))).*$"
+日本·节点 = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|Japan)\b)))(?!.*((?i)回国|校园|实验|游戏|🎮|(\b(GAME)\b))).*$"
+韩国·节点 = NameRegex, FilterKey = "^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|Korea)\b)))(?!.*((?i)回国|校园|实验|游戏|🎮|(\b(GAME)\b))).*$"
+新国·节点 = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)))(?!.*((?i)回国|校园|实验|游戏|🎮|(\b(GAME)\b))).*$"
+美国·节点 = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|United States)\b)))(?!.*((?i)回国|校园|实验|游戏|🎮|(\b(GAME)\b))).*$"
+直连·节点 = NameRegex, FilterKey = "^(?=.*((?i)直连|(\b(AD)\b)))(?!.*((?i)回国|校园|实验|游戏|🎮|(\b(GAME)\b))).*$"
+拒绝·节点 = NameRegex, FilterKey = "^(?=.*((?i)广告|(\b(AD)\b)))(?!.*((?i)回国|校园|实验|游戏|🎮|(\b(GAME)\b))).*$"
+
+[Proxy Group]
+# 场景
+全球·场景 = ssid, default = 全球·策略, cellular = 全球·策略, "吴天宇的WLAN" = 全球·策略, img-url = w.circle
+大陆·场景 = ssid, default = 大陆·策略, cellular = 大陆·策略, "吴天宇的WLAN" = 大陆·策略, img-url = c.circle
+浙大·场景 = ssid, default = 浙大·策略, cellular = 浙大·策略, "吴天宇的WLAN" = 浙大·策略, img-url = z.circle
+香港·场景 = ssid, default = 香港·策略, cellular = 香港·策略, "吴天宇的WLAN" = 香港·策略, img-url = h.circle
+台湾·场景 = ssid, default = 台湾·策略, cellular = 台湾·策略, "吴天宇的WLAN" = 台湾·策略, img-url = t.circle
+日本·场景 = ssid, default = 日本·策略, cellular = 日本·策略, "吴天宇的WLAN" = 日本·策略, img-url = j.circle
+韩国·场景 = ssid, default = 韩国·策略, cellular = 韩国·策略, "吴天宇的WLAN" = 韩国·策略, img-url = k.circle
+新国·场景 = ssid, default = 新国·策略, cellular = 新国·策略, "吴天宇的WLAN" = 新国·策略, img-url = s.circle
+美国·场景 = ssid, default = 美国·策略, cellular = 美国·策略, "吴天宇的WLAN" = 美国·策略, img-url = u.circle
+直连·场景 = ssid, default = 直连·策略, cellular = 直连·策略, "吴天宇的WLAN" = 直连·策略, img-url = d.circle
+拒绝·场景 = ssid, default = 拒绝·策略, cellular = 拒绝·策略, "吴天宇的WLAN" = 拒绝·策略, img-url = r.circle
+# 策略
+全球·策略 = select, 全球·延时优选, 全球·故障转移, 全球·负载均衡, 全球·手动选择, img-url = w.circle
+大陆·策略 = select, 大陆·延时优选, 大陆·故障转移, 大陆·负载均衡, 大陆·手动选择, img-url = c.circle
+浙大·策略 = select, 浙大·延时优选, 浙大·故障转移, 浙大·负载均衡, 浙大·手动选择, img-url = z.circle
+香港·策略 = select, 香港·延时优选, 香港·故障转移, 香港·负载均衡, 香港·手动选择, img-url = h.circle
+台湾·策略 = select, 台湾·延时优选, 台湾·故障转移, 台湾·负载均衡, 台湾·手动选择, img-url = t.circle
+日本·策略 = select, 日本·延时优选, 日本·故障转移, 日本·负载均衡, 日本·手动选择, img-url = j.circle
+韩国·策略 = select, 韩国·延时优选, 韩国·故障转移, 韩国·负载均衡, 韩国·手动选择, img-url = k.circle
+新国·策略 = select, 新国·延时优选, 新国·故障转移, 新国·负载均衡, 新国·手动选择, img-url = s.circle
+美国·策略 = select, 美国·延时优选, 美国·故障转移, 美国·负载均衡, 美国·手动选择, img-url = u.circle
+直连·策略 = select, 直连·延时优选, 直连·故障转移, 直连·负载均衡, 直连·手动选择, img-url = d.circle
+拒绝·策略 = select, 拒绝·延时优选, 拒绝·故障转移, 拒绝·负载均衡, 拒绝·手动选择, img-url = r.circle
+# 延时优选
+全球·延时优选 = url-test, 全球·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, tolerance = 5, img-url = w.circle
+大陆·延时优选 = url-test, 大陆·节点, DIRECT, url = http://cp.cloudflare.com/generate_204, interval = 1000, tolerance = 5, img-url = c.circle
+浙大·延时优选 = url-test, 浙大·节点, url = http://speedtest.zju.edu.cn, interval = 1000, tolerance = 5, img-url = z.circle
+香港·延时优选 = url-test, 香港·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, tolerance = 5, img-url = h.circle
+台湾·延时优选 = url-test, 台湾·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, tolerance = 5, img-url = t.circle
+日本·延时优选 = url-test, 日本·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, tolerance = 5, img-url = j.circle
+韩国·延时优选 = url-test, 韩国·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, tolerance = 5, img-url = k.circle
+新国·延时优选 = url-test, 新国·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, tolerance = 5, img-url = s.circle
+美国·延时优选 = url-test, 美国·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, tolerance = 5, img-url = u.circle
+直连·延时优选 = url-test, 直连·节点, DIRECT, url = http://cp.cloudflare.com/generate_204, interval = 1000, tolerance = 5, img-url = d.circle
+拒绝·延时优选 = url-test, 拒绝·节点, REJECT, url = http://cp.cloudflare.com/generate_204, interval = 1000, tolerance = 5, img-url = r.circle
+# 故障转移
+全球·故障转移 = fallback, 全球·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, img-url = w.circle
+大陆·故障转移 = fallback, 大陆·节点, DIRECT, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, img-url = c.circle
+浙大·故障转移 = fallback, 浙大·节点, url = http://speedtest.zju.edu.cn, interval = 1000, max-timeout = 1000, img-url = z.circle
+香港·故障转移 = fallback, 香港·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, img-url = h.circle
+台湾·故障转移 = fallback, 台湾·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, img-url = t.circle
+日本·故障转移 = fallback, 日本·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, img-url = j.circle
+韩国·故障转移 = fallback, 韩国·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, img-url = k.circle
+新国·故障转移 = fallback, 新国·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, img-url = s.circle
+美国·故障转移 = fallback, 美国·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, img-url = u.circle
+直连·故障转移 = fallback, 直连·节点, DIRECT, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, img-url = d.circle
+拒绝·故障转移 = fallback, 拒绝·节点, REJECT, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, img-url = r.circle
+# 负载均衡
+全球·负载均衡 = load-balance, 全球·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = w.circle
+大陆·负载均衡 = load-balance, 大陆·节点, DIRECT, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = c.circle
+浙大·负载均衡 = load-balance, 浙大·节点, url = http://speedtest.zju.edu.cn, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = z.circle
+香港·负载均衡 = load-balance, 香港·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = h.circle
+台湾·负载均衡 = load-balance, 台湾·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = t.circle
+日本·负载均衡 = load-balance, 日本·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = j.circle
+韩国·负载均衡 = load-balance, 韩国·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = k.circle
+新国·负载均衡 = load-balance, 新国·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = s.circle
+美国·负载均衡 = load-balance, 美国·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = u.circle
+直连·负载均衡 = load-balance, 直连·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = d.circle
+拒绝·负载均衡 = load-balance, 拒绝·节点, REJECT, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = r.circle
+# 手动选择
+全球·手动选择 = select, 全球·节点, DIRECT, REJECT, REJECT-DROP, REJECT-NO-DROP, REJECT-IMG, REJECT-IMG-NO-DROP, REJECT-VIDEO, REJECT-VIDEO-NO-DROP, REJECT-DICT, REJECT-DICT-NO-DROP, REJECT-ARRAY, REJECT-ARRAY-NO-DROP, img-url = w.circle
+大陆·手动选择 = select, 大陆·节点, DIRECT, REJECT, REJECT-DROP, REJECT-NO-DROP, REJECT-IMG, REJECT-IMG-NO-DROP, REJECT-VIDEO, REJECT-VIDEO-NO-DROP, REJECT-DICT, REJECT-DICT-NO-DROP, REJECT-ARRAY, REJECT-ARRAY-NO-DROP, img-url = c.circle
+浙大·手动选择 = select, 浙大·节点, DIRECT, REJECT, REJECT-DROP, REJECT-NO-DROP, REJECT-IMG, REJECT-IMG-NO-DROP, REJECT-VIDEO, REJECT-VIDEO-NO-DROP, REJECT-DICT, REJECT-DICT-NO-DROP, REJECT-ARRAY, REJECT-ARRAY-NO-DROP, img-url = z.circle
+香港·手动选择 = select, 香港·节点, DIRECT, REJECT, REJECT-DROP, REJECT-NO-DROP, REJECT-IMG, REJECT-IMG-NO-DROP, REJECT-VIDEO, REJECT-VIDEO-NO-DROP, REJECT-DICT, REJECT-DICT-NO-DROP, REJECT-ARRAY, REJECT-ARRAY-NO-DROP, img-url = h.circle
+台湾·手动选择 = select, 台湾·节点, DIRECT, REJECT, REJECT-DROP, REJECT-NO-DROP, REJECT-IMG, REJECT-IMG-NO-DROP, REJECT-VIDEO, REJECT-VIDEO-NO-DROP, REJECT-DICT, REJECT-DICT-NO-DROP, REJECT-ARRAY, REJECT-ARRAY-NO-DROP, img-url = t.circle
+日本·手动选择 = select, 日本·节点, DIRECT, REJECT, REJECT-DROP, REJECT-NO-DROP, REJECT-IMG, REJECT-IMG-NO-DROP, REJECT-VIDEO, REJECT-VIDEO-NO-DROP, REJECT-DICT, REJECT-DICT-NO-DROP, REJECT-ARRAY, REJECT-ARRAY-NO-DROP, img-url = j.circle
+韩国·手动选择 = select, 韩国·节点, DIRECT, REJECT, REJECT-DROP, REJECT-NO-DROP, REJECT-IMG, REJECT-IMG-NO-DROP, REJECT-VIDEO, REJECT-VIDEO-NO-DROP, REJECT-DICT, REJECT-DICT-NO-DROP, REJECT-ARRAY, REJECT-ARRAY-NO-DROP, img-url = k.circle
+新国·手动选择 = select, 新国·节点, DIRECT, REJECT, REJECT-DROP, REJECT-NO-DROP, REJECT-IMG, REJECT-IMG-NO-DROP, REJECT-VIDEO, REJECT-VIDEO-NO-DROP, REJECT-DICT, REJECT-DICT-NO-DROP, REJECT-ARRAY, REJECT-ARRAY-NO-DROP, img-url = s.circle
+美国·手动选择 = select, 美国·节点, DIRECT, REJECT, REJECT-DROP, REJECT-NO-DROP, REJECT-IMG, REJECT-IMG-NO-DROP, REJECT-VIDEO, REJECT-VIDEO-NO-DROP, REJECT-DICT, REJECT-DICT-NO-DROP, REJECT-ARRAY, REJECT-ARRAY-NO-DROP, img-url = u.circle
+直连·手动选择 = select, 直连·节点, DIRECT, REJECT, REJECT-DROP, REJECT-NO-DROP, REJECT-IMG, REJECT-IMG-NO-DROP, REJECT-VIDEO, REJECT-VIDEO-NO-DROP, REJECT-DICT, REJECT-DICT-NO-DROP, REJECT-ARRAY, REJECT-ARRAY-NO-DROP, img-url = d.circle
+拒绝·手动选择 = select, 拒绝·节点, DIRECT, REJECT, REJECT-DROP, REJECT-NO-DROP, REJECT-IMG, REJECT-IMG-NO-DROP, REJECT-VIDEO, REJECT-VIDEO-NO-DROP, REJECT-DICT, REJECT-DICT-NO-DROP, REJECT-ARRAY, REJECT-ARRAY-NO-DROP, img-url = r.circle
+
+[Proxy Chain]
+
+[Rule]
+# 兜底
+FINAL, 直连·场景
+
+[Remote Rule]
+# FIX
+https://raw.githubusercontent.com/wutianyu1129/temp/refs/heads/main/revision_cn.list, policy = 大陆·场景, tag = FIX, enabled = true
+# ZJU
+https://raw.githubusercontent.com/wutianyu1129/ZJU-Rule/refs/heads/main/Clash/ZJU.list, policy = 浙大·场景, tag = ZJU, enabled = true
+# Apple
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Apple/Apple.list, policy = 大陆·场景, tag = Apple, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Apple/Apple_Domain.list, policy = 大陆·场景, tag = Apple, enabled = true
+# WeChat
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/WeChat/WeChat.list, policy = 大陆·场景, tag = WeChat, enabled = true
+# Speedtest
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Speedtest/Speedtest.list, policy = 大陆·场景, tag = Speedtest, enabled = true
+# PayPal
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/PayPal/PayPal.list, policy = 美国·场景, tag = PayPal, enabled = true
+# OpenAI
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/OpenAI/OpenAI.list, policy = 美国·场景, tag = OpenAI, enabled = true
+# Claude
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Claude/Claude.list, policy = 美国·场景, tag = Claude, enabled = true
+# Gemini
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Gemini/Gemini.list, policy = 美国·场景, tag = Gemini, enabled = true
+# YouTube
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/YouTube/YouTube.list, policy = 全球·场景, tag = YouTube, enabled = true
+# Google
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Google/Google.list, policy = 全球·场景, tag = Google, enabled = true
+# GitHub
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/GitHub/GitHub.list, policy = 全球·场景, tag = GitHub, enabled = true
+# Docker
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Docker/Docker.list, policy = 全球·场景, tag = Docker, enabled = true
+# X
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Twitter/Twitter.list, policy = 全球·场景, tag = X, enabled = true
+# TikTok
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/TikTok/TikTok.list, policy = 全球·场景, tag = TikTok, enabled = true
+# Telegram
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Telegram/Telegram.list, policy = 全球·场景, tag = Telegram, enabled = true
+# Spotify
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Spotify/Spotify.list, policy = 全球·场景, tag = Spotify, enabled = true
+# Disney
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Disney/Disney.list, policy = 全球·场景, tag = Disney, enabled = true
+# Netflix
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Netflix/Netflix.list, policy = 全球·场景, tag = Netflix, enabled = true
+# China
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/ChinaMax/ChinaMax.list, policy = 大陆·场景, tag = 大陆, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/ChinaMax/ChinaMax_Domain.list, policy = 大陆·场景, tag = 大陆, enabled = true
+# 广告
+https://anti-ad.net/surge.txt, policy = 拒绝·场景, tag = 广告, enabled = true
+https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Loon/rule/rejectAd.list, policy = 拒绝·场景, tag = 广告, enabled = true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Advertising/Advertising.list, policy = 拒绝·场景, tag = 广告, enabled = false
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Advertising/Advertising_Domain.list, policy = 拒绝·场景, tag = 广告, enabled = false
+
+[Host]
+# ZJU
+#*.zju.edu.cn = server:system
+
+[Rewrite]
+
+[Script]
+
+[Plugin]
+# Fries
+https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/refs/heads/main/plugin/General.plugin, tag = 🍟 Fries: 🌐 General Enhanced, enabled = true
+https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/refs/heads/main/plugin/HTTPDNS.Block.plugin, tag = 🍟 Fries: 🚫 Block HTTPDNS, enabled = true
+https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/refs/heads/main/plugin/DNS.plugin, tag = 🍟 Fries: 🌐 DNS enhanced, enabled = false
+# iRingo
+https://github.com/NSRingo/WeatherKit/releases/latest/download/iRingo.WeatherKit.plugin, tag =  iRingo: 🌤 WeatherKit, enabled = true
+https://github.com/NSRingo/Siri/releases/latest/download/iRingo.Siri.plugin, tag =  iRingo: ⭕ Siri, enabled = false
+https://github.com/NSRingo/LocationService/releases/latest/download/iRingo.LocationService.plugin, tag =  iRingo: 📍 LocationService, enabled = false
+https://github.com/NSRingo/GeoServices/releases/latest/download/iRingo.Maps.plugin, tag =  iRingo: 🗺️ Maps, enabled = false
+https://github.com/NSRingo/TV/releases/latest/download/iRingo.TV.plugin, tag =  iRingo: 📺 TV app, enabled = false
+https://github.com/NSRingo/TestFlight/releases/latest/download/iRingo.TestFlight.plugin, tag =  iRingo: ✈ TestFlight, enabled = false
+https://github.com/NSRingo/News/releases/latest/download/iRingo.News.plugin, tag =  iRingo: 📰 News, enabled = false
+# 哔哩哔哩
+https://kelee.one/Tool/Loon/Lpx/Bilibili_remove_ads.lpx, tag = 哔哩哔哩, enabled = true
+https://github.com/BiliUniverse/ADBlock/releases/latest/download/BiliBili.ADBlock.plugin, tag = 📺 BiliBili: 🛡️ ADBlock, enabled = false
+https://github.com/BiliUniverse/Enhanced/releases/latest/download/BiliBili.Enhanced.plugin, tag = 📺 BiliBili: ⚙️ Enhanced, enabled = false
+https://github.com/BiliUniverse/Redirect/releases/latest/download/BiliBili.Redirect.plugin, tag = 📺 BiliBili: 🔀 Redirect, enabled = false
+https://github.com/BiliUniverse/Global/releases/latest/download/BiliBili.Global.plugin, tag = 📺 BiliBili: 🌐 Global, enabled = false
+#https://script.hub/file/_start_/https://raw.githubusercontent.com/ddgksf2013/Rewrite/refs/heads/master/AdBlock/Bilibili.conf/_end_/Bilibili.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 哔哩哔哩, enabled = false
+# YouTube
+https://kelee.one/Tool/Loon/Lpx/YouTube_remove_ads.lpx, tag=YouTube, enabled = true
+#https://script.hub/file/_start_/https://raw.githubusercontent.com/ddgksf2013/Rewrite/refs/heads/master/AdBlock/YoutubeAds.conf/_end_/YoutubeAds.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = YouTube, enabled = true
+# DualSubs
+https://github.com/DualSubs/YouTube/releases/latest/download/DualSubs.YouTube.plugin, tag = 🍿️ DualSubs: ▶️ YouTube, enabled = true
+https://github.com/DualSubs/Netflix/releases/latest/download/DualSubs.Netflix.plugin, tag = 🍿️ DualSubs: 🇳 Netflix, enabled = false
+https://github.com/DualSubs/Universal/releases/latest/download/DualSubs.Universal.plugin, tag = 🍿️ DualSubs: 🔣 Universal, enabled = false
+# Safari
+https://script.hub/file/_start_/https://raw.githubusercontent.com/ddgksf2013/Rewrite/refs/heads/master/Html/Q-Search.conf/_end_/Q-Search.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = Safari, enabled = true
+# Google
+https://kelee.one/Tool/Loon/Lpx/Google.lpx, tag = Google, enabled = true
+# 百度
+https://kelee.one/Tool/Loon/Lpx/BaiduSearchWebpage_remove_ads.lpx, tag = 百度, enabled = true
+# 微信
+https://kelee.one/Tool/Loon/Lpx/Weixin_Official_Accounts_remove_ads.lpx, tag = 微信, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Weixin_external_links_unlock.lpx, tag = 微信, enabled = true
+#https://script.hub/file/_start_/https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/cleanup.snippet/_end_/cleanup.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 微信, enabled = false
+#https://script.hub/file/_start_/https://raw.githubusercontent.com/ddgksf2013/Rewrite/refs/heads/master/AdBlock/Applet.conf/_end_/Applet.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 微信, enabled = false
+# 微博
+https://raw.githubusercontent.com/Ricowei520/loon_rewrite/refs/heads/main/Plugins/weibo.plugin, tag = 微博, enabled = false
+# 知乎
+https://kelee.one/Tool/Loon/Lpx/Zhihu_remove_ads.lpx, tag = 知乎, enabled = true
+#https://raw.githubusercontent.com/Ricowei520/loon_rewrite/refs/heads/main/Plugins/zhihu.plugin, tag = 知乎, enabled = false
+#https://script.hub/file/_start_/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/script/zheye/zheye.snippet/_end_/zheye.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 知乎, enabled = false
+# 小红书
+https://kelee.one/Tool/Loon/Lpx/RedPaper_remove_ads.lpx, tag = 小红书, enabled = true
+#https://raw.githubusercontent.com/Ricowei520/loon_rewrite/refs/heads/main/Plugins/xiaohongshu.plugin, tag = 小红书, enabled = false
+# 百度贴吧
+https://kelee.one/Tool/Loon/Lpx/Tieba_remove_ads.lpx, tag = 百度贴吧, enabled = false
+#https://raw.githubusercontent.com/app2smile/rules/master/plugin/tieba.plugin, tag = 百度贴吧, enabled = false
+# IT之家
+https://kelee.one/Tool/Loon/Lpx/IThome_remove_ads.lpx, tag = IT之家, enabled = true
+# 什么值得买
+https://kelee.one/Tool/Loon/Lpx/smzdm_remove_ads.lpx, tag = 什么值得买, enabled = false
+#https://script.hub/file/_start_/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/script/smzdm/smzdm_remove_ads.qxrewrite/_end_/smzdm_remove_ads.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 什么值得买, enabled = false
+# 京东
+https://kelee.one/Tool/Loon/Lpx/JD_remove_ads.lpx, tag = 京东, enabled = true
+# 淘宝
+https://kelee.one/Tool/Loon/Lpx/Taobao_remove_ads.lpx, tag = 淘宝, enabled = true
+# 拼多多
+https://kelee.one/Tool/Loon/Lpx/PinDuoDuo_remove_ads.lpx, tag = 拼多多, enabled = true
+# 闲鱼
+https://kelee.one/Tool/Loon/Lpx/FleaMarket_remove_ads.lpx, tag = 闲鱼, enabled = true
+# 云闪付
+#https://kelee.one/Tool/Loon/Lpx/UnionPay_remove_ads_with_ssl_unpinning.lpx, tag = 云闪付, enabled = false
+# WPS文档
+https://kelee.one/Tool/Loon/Lpx/WPS_Documents_remove_ads.lpx, tag = WPS文档, enabled = true
+# 腾讯文档
+https://kelee.one/Tool/Loon/Lpx/TXDocs_remove_ads.lpx, tag = 腾讯文档, enabled = true
+# 稿定设计
+https://kelee.one/Tool/Loon/Lpx/GaoDing_remove_ads.lpx, tag = 稿定设计, enabled = true
+# 向日葵
+https://kelee.one/Tool/Loon/Lpx/OraySunlogin_remove_ads.lpx, tag = 向日葵, enabled = true
+# 阿里云盘
+https://kelee.one/Tool/Loon/Lpx/AliYunDrive_remove_ads.lpx, tag = 阿里云盘, enabled = true
+#https://script.hub/file/_start_/https://gist.githubusercontent.com/ddgksf2013/f4752e632fd3375ea2811985c5b635dc/raw/alicloud.js/_end_/alicloud.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 阿里网盘, enabled = false
+# 高德地图
+https://kelee.one/Tool/Loon/Lpx/Amap_remove_ads.lpx, tag = 高德地图, enabled = true
+#https://raw.githubusercontent.com/Ricowei520/loon_rewrite/refs/heads/main/Plugins/amap.plugin, tag = 高德地图, enabled = false
+#https://script.hub/file/_start_/https://raw.githubusercontent.com/ddgksf2013/Rewrite/refs/heads/master/AdBlock/Amap.conf/_end_/Amap.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 高德地图, enabled = false
+# 百度地图
+https://kelee.one/Tool/Loon/Lpx/BaiduMap_remove_ads.lpx, tag = 百度地图, enabled = false
+#https://raw.githubusercontent.com/Ricowei520/loon_rewrite/refs/heads/main/Plugins/bdmap.plugin, tag = 百度地图, enabled = false
+# 航旅纵横
+https://kelee.one/Tool/Loon/Lpx/Umetrip_remove_ads.lpx, tag = 航旅纵横, enabled = true
+# 12306
+https://kelee.one/Tool/Loon/Lpx/12306_remove_ads.lpx, tag = 12306, enabled = true
+# 酷狗音乐
+https://kelee.one/Tool/Loon/Lpx/KuGou_remove_ads.lpx, tag = 酷狗音乐, enabled = true
+# 网易云音乐
+https://kelee.one/Tool/Loon/Lpx/NeteaseCloudMusic_remove_ads.lpx, tag = 网易云音乐, enabled = false
+#https://raw.githubusercontent.com/Ricowei520/loon_rewrite/refs/heads/main/Plugins/cloudmusic.plugin, tag = 网易云音乐, enabled = false
+# 全民K歌
+https://kelee.one/Tool/Loon/Lpx/QQKSong_remove_ads.lpx, tag = 全民K歌, enabled = false
+# 喜马拉雅
+https://kelee.one/Tool/Loon/Lpx/Himalaya_remove_ads.lpx, tag = 喜马拉雅, enabled = false
+#https://script.hub/file/_start_/https://raw.githubusercontent.com/ddgksf2013/Rewrite/refs/heads/master/AdBlock/Ximalaya.conf/_end_/Ximalaya.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 喜马拉雅, enabled = false
+# 爱奇艺
+https://kelee.one/Tool/Loon/Lpx/iQiYi_Video_remove_ads.lpx, tag = 爱奇艺, enabled = false
+# 优酷视频
+https://kelee.one/Tool/Loon/Lpx/YouKu_Video_remove_ads.lpx, tag = 优酷视频, enabled = false
+# 腾讯视频
+https://kelee.one/Tool/Loon/Lpx/Tencent_Video_remove_ads.lpx, tag = 腾讯视频, enabled = false
+# 豆瓣
+#https://kelee.one/Tool/Loon/Lpx/DouBan_remove_ads.lpx, tag = 豆瓣, enabled = false
+#https://script.hub/file/_start_/https://raw.githubusercontent.com/ddgksf2013/Rewrite/refs/heads/master/Html/Douban.conf/_end_/Douban.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 豆瓣, enabled = false
+# 综合·解锁
+https://raw.githubusercontent.com/chxm1023/Script_X/main/Collections.plugin, tag = 综合, enabled = false
+https://script.hub/file/_start_/https://raw.githubusercontent.com/ddgksf2013/dev/master/ForOwnUse.conf/_end_/ForOwnUse.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 综合, enabled = false
+https://script.hub/file/_start_/https://gist.githubusercontent.com/ddgksf2013/dbb1695cd96743eef18f3fac5c6fe227/raw/revenuecat.js/_end_/revenuecat.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 综合, enabled = false
+# 综合·广告
+https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, tag = 综合, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, tag = 综合, enabled = true
+https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Loon/plugin/blockAds.plugin, tag = 综合, enabled = false
+https://raw.githubusercontent.com/wutianyu1129/temp/refs/heads/main/loon_plugin, tag = 综合, enabled = false
+https://raw.githubusercontent.com/Ricowei520/loon_rewrite/refs/heads/main/Plugins/myblockads.plugin, tag = 综合, enabled = false
+https://raw.githubusercontent.com/Ricowei520/loon_rewrite/refs/heads/main/Plugins/webpage.plugin, tag = 综合, enabled = false
+https://script.hub/file/_start_/https://gist.githubusercontent.com/ddgksf2013/12ef6aad209155e7eb62c5b00c11b9dd/raw/StartUpAds.conf/_end_/StartUp.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 综合, enabled = false
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rewrite/Loon/AllInOne/AllInOne.plugin, tag = 综合, enabled = false
+https://script.hub/file/_start_/https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/refs/heads/master/QuantumultX/rewrite/MyRewrite.conf/_end_/MyRewrite.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 综合, enabled = false
+https://script.hub/file/_start_/https://raw.githubusercontent.com/zwf234/rules/refs/heads/master/QuantumultX/tailadv.conf/_end_/tailadv.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 综合, enabled = false
+https://raw.githubusercontent.com/chxm1023/Advertising/refs/heads/Loon/AppAD.plugin, tag = 综合, enabled = false
+# 综合·影视
+#https://script.hub/file/_start_/https://raw.githubusercontent.com/RuCu6/QuanX/refs/heads/main/Rewrites/Cube/cnftp.snippet/_end_/cnftp.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 综合, enabled = false
+https://script.hub/file/_start_/https://raw.githubusercontent.com/ddgksf2013/Rewrite/refs/heads/master/Html/WebAdBlock.conf/_end_/WebAdBlock.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 综合, enabled = false
+https://script.hub/file/_start_/https://raw.githubusercontent.com/limbopro/Adblock4limbo/main/Adblock4limbo.conf/_end_/Adblock4limbo.plugin.txt?type=qx-rewrite&target=loon-plugin&del=true, tag = 综合, enabled = false
+# 工具
+https://raw.githubusercontent.com/chavyleung/scripts/refs/heads/master/box/rewrite/boxjs.rewrite.loon.plugin, policy = 全球·场景, tag = BoxJs, enabled = false
+https://raw.githubusercontent.com/sub-store-org/Sub-Store/refs/heads/master/config/Loon.plugin, policy = 全球·场景, tag = Sub-Store, enabled = false
+https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/refs/heads/main/modules/script-hub.loon.plugin, tag = 转换, enabled = true
+https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, tag = 节点检测工具, enabled = true
+
+[Mitm]
+ca-p12 = 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
+ca-passphrase = 4S4CE63U
+skip-server-cert-verify = true
