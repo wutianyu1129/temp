@@ -1,7 +1,6 @@
-# Name           Loon_wuty
-# Author         Wuty-zju
-# UpdateTime     2025/12/13-PM/11:55
-# URL            https://github.com/wutianyu1129/Quantumult-X/main/Loon_wuty
+# Name           wuliwala
+# Author         Wuliwala
+# UpdateTime     2026/4/22-PM/9:55
 
 [General]
 ipv6-vif = auto
@@ -30,8 +29,8 @@ bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/
 
 [Remote Proxy]
 # 订阅
-花云·订阅 = https://raw.githubusercontent.com/wutianyu1129/temp/refs/heads/main/fl-1, udp = true, block-quic = false, fast-open = default, vmess-aead = true, skip-cert-verify = true, flexible-sni = false, enabled = true
-花云·订阅 = https://raw.githubusercontent.com/wutianyu1129/temp/refs/heads/main/fl-2, udp = true, block-quic = false, fast-open = default, vmess-aead = true, skip-cert-verify = true, flexible-sni = false, enabled = false
+花云·订阅 = https://api.xmancdn.net/osubscribe.php?token2=xqk33vkq-1b7aa364938y6g6vxi&sip002=1, udp = true, block-quic = false, fast-open = default, vmess-aead = true, skip-cert-verify = true, flexible-sni = false, enabled = true
+花云·订阅 = https://api.xmancdn.net/osubscribe.php?token2=xqk33vkq-1b7aa364938y6g6vxi, udp = true, block-quic = false, fast-open = default, vmess-aead = true, skip-cert-verify = true, flexible-sni = false, enabled = false
 备用·订阅 = https://jdddf.stc-spare2.com/link/xYHXCBq2EJlLuZyc?sub=3, udp = true, block-quic = false, fast-open = default, vmess-aead = true, skip-cert-verify = true, flexible-sni = false, enabled = false
 蛙蛙·订阅 = https://raw.githubusercontent.com/wutianyu1129/temp/main/t, udp = true, block-quic = false, fast-open = default, vmess-aead = true, skip-cert-verify = true, flexible-sni = false, enabled = true
 
@@ -63,17 +62,17 @@ bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/
 直连·场景 = ssid, default = 直连·策略, cellular = 直连·策略, "吴天宇的WLAN" = 直连·策略, img-url = d.circle
 拒绝·场景 = ssid, default = 拒绝·策略, cellular = 拒绝·策略, "吴天宇的WLAN" = 拒绝·策略, img-url = r.circle
 # 策略
-全球·策略 = select, 全球·延时优选, 全球·故障转移, 全球·负载均衡, 全球·手动选择, img-url = w.circle
-大陆·策略 = select, 大陆·延时优选, 大陆·故障转移, 大陆·负载均衡, 大陆·手动选择, img-url = c.circle
-浙大·策略 = select, 浙大·延时优选, 浙大·故障转移, 浙大·负载均衡, 浙大·手动选择, img-url = z.circle
-香港·策略 = select, 香港·延时优选, 香港·故障转移, 香港·负载均衡, 香港·手动选择, img-url = h.circle
-台湾·策略 = select, 台湾·延时优选, 台湾·故障转移, 台湾·负载均衡, 台湾·手动选择, img-url = t.circle
-日本·策略 = select, 日本·延时优选, 日本·故障转移, 日本·负载均衡, 日本·手动选择, img-url = j.circle
-韩国·策略 = select, 韩国·延时优选, 韩国·故障转移, 韩国·负载均衡, 韩国·手动选择, img-url = k.circle
-新国·策略 = select, 新国·延时优选, 新国·故障转移, 新国·负载均衡, 新国·手动选择, img-url = s.circle
-美国·策略 = select, 美国·延时优选, 美国·故障转移, 美国·负载均衡, 美国·手动选择, img-url = u.circle
-直连·策略 = select, 直连·延时优选, 直连·故障转移, 直连·负载均衡, 直连·手动选择, img-url = d.circle
-拒绝·策略 = select, 拒绝·延时优选, 拒绝·故障转移, 拒绝·负载均衡, 拒绝·手动选择, img-url = r.circle
+全球·策略 = select, 全球·故障转移, 全球·延时优选, 全球·负载均衡, 全球·手动选择, img-url = w.circle
+大陆·策略 = select, 大陆·故障转移, 大陆·延时优选, 大陆·负载均衡, 大陆·手动选择, img-url = c.circle
+浙大·策略 = select, 浙大·故障转移, 浙大·延时优选, 浙大·负载均衡, 浙大·手动选择, img-url = z.circle
+香港·策略 = select, 香港·故障转移, 香港·延时优选, 香港·负载均衡, 香港·手动选择, img-url = h.circle
+台湾·策略 = select, 台湾·故障转移, 台湾·延时优选, 台湾·负载均衡, 台湾·手动选择, img-url = t.circle
+日本·策略 = select, 日本·故障转移, 日本·延时优选, 日本·负载均衡, 日本·手动选择, img-url = j.circle
+韩国·策略 = select, 韩国·故障转移, 韩国·延时优选, 韩国·负载均衡, 韩国·手动选择, img-url = k.circle
+新国·策略 = select, 新国·故障转移, 新国·延时优选, 新国·负载均衡, 新国·手动选择, img-url = s.circle
+美国·策略 = select, 美国·故障转移, 美国·延时优选, 美国·负载均衡, 美国·手动选择, img-url = u.circle
+直连·策略 = select, 直连·故障转移, 直连·延时优选, 直连·负载均衡, 直连·手动选择, img-url = d.circle
+拒绝·策略 = select, 拒绝·故障转移, 拒绝·延时优选, 拒绝·负载均衡, 拒绝·手动选择, img-url = r.circle
 # 延时优选
 全球·延时优选 = url-test, 全球·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, tolerance = 5, img-url = w.circle
 大陆·延时优选 = url-test, 大陆·节点, DIRECT, url = http://cp.cloudflare.com/generate_204, interval = 1000, tolerance = 5, img-url = c.circle
