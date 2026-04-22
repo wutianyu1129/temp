@@ -1,5 +1,5 @@
 # Name: wuliwala.yaml
-# UpdateTime: 2026/4/22-PM/10:22
+# UpdateTime: 2026/4/22-PM/11:23
 
 port: 7890
 socks-port: 7891
@@ -46,7 +46,7 @@ proxy-providers:
   机场·订阅·B:
     type: http
     path: ./profiles/proxies/wawa.yaml
-    url: "https://raw.githubusercontent.com/wutianyu1129/temp/main/t"
+    url: "https://raw.githubusercontent.com/wutianyu1129/temp/main/tc"
     interval: 21600
     health-check:
       enable: true
