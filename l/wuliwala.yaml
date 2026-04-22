@@ -46,7 +46,7 @@ proxy-providers:
   机场·订阅·B:
     type: http
     path: ./profiles/proxies/wawa.yaml
-    url: "https://raw.githubusercontent.com/wutianyu1129/temp/main/tc"
+    url: "https://raw.githubusercontent.com/wutianyu1129/temp/main/ttc"
     interval: 21600
     health-check:
       enable: true
