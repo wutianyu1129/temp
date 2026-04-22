@@ -1,6 +1,5 @@
-# Name           wuliwala
-# Author         Wuliwala
-# UpdateTime     2026/4/22-PM/9:55
+# Name           wuliwala.lcf
+# UpdateTime     2026/4/22-PM/10:55
 
 [General]
 ipv6-vif = auto
@@ -126,7 +125,7 @@ bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/
 
 [Rule]
 # 兜底
-FINAL, 直连·场景
+FINAL, 全球·场景
 
 [Remote Rule]
 # FIX
@@ -168,6 +167,8 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Disney/Disney.list, policy = 全球·场景, tag = Disney, enabled = true
 # Netflix
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Netflix/Netflix.list, policy = 全球·场景, tag = Netflix, enabled = true
+# Steam
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/Steam/Steam.list, policy = 全球·场景, tag = Steam, enabled = true
 # China
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/ChinaMax/ChinaMax.list, policy = 大陆·场景, tag = 大陆, enabled = true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Loon/ChinaMax/ChinaMax_Domain.list, policy = 大陆·场景, tag = 大陆, enabled = true
