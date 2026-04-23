@@ -1,5 +1,5 @@
 # Name: wuliwala.yaml
-# UpdateTime: 2026/04/23-PM/6:55
+# UpdateTime: 2026/04/23-PM/7:25
 
 port: 7890
 socks-port: 7891
@@ -26,19 +26,19 @@ dns:
   listen: 0.0.0.0:53
   ipv6: true
   nameserver:
-    - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
-    - https://cloudflare-dns.com/dns-query
-    - https://dns.google/dns-query
+    - "https://dns.alidns.com/dns-query"
+    - "https://doh.pub/dns-query"
+    - "https://cloudflare-dns.com/dns-query"
+    - "https://dns.google/dns-query"
   fallback:
-    - 223.5.5.5
-    - 2400:3200::1
-    - 119.29.29.29
-    - 2402:4e00::
-    - 1.1.1.1
-    - 2606:4700:4700::1111
-    - 8.8.8.8
-    - 2001:4860:4860::8888
+    - "223.5.5.5"
+    - "2400:3200::1"
+    - "119.29.29.29"
+    - "2402:4e00::"
+    - "1.1.1.1"
+    - "2606:4700:4700::1111"
+    - "8.8.8.8"
+    - "2001:4860:4860::8888"
   fallback-filter:
     geoip: true
     geoip-code: CN
@@ -104,11 +104,11 @@ proxy-groups:
 
   - name: 直连·场景
     type: select
-    proxies: [直连·策略, DIRECT]
+    proxies: [直连·策略]
 
   - name: 拒绝·场景
     type: select
-    proxies: [拒绝·策略, REJECT, REJECT-DROP]
+    proxies: [拒绝·策略]
 
   # 策略
   - name: 全球·策略
