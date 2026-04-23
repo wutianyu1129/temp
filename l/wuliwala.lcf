@@ -1,5 +1,5 @@
 # Name           wuliwala.lcf
-# UpdateTime     2026/4/22-PM/10:55
+# UpdateTime     2026/4/23-PM/6:55
 
 [General]
 ipv6-vif = auto
@@ -106,7 +106,7 @@ bypass-tun = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/
 韩国·负载均衡 = load-balance, 韩国·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = k.circle
 新国·负载均衡 = load-balance, 新国·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = s.circle
 美国·负载均衡 = load-balance, 美国·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = u.circle
-直连·负载均衡 = load-balance, 直连·节点, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = d.circle
+直连·负载均衡 = load-balance, 直连·节点, DIRECT, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = d.circle
 拒绝·负载均衡 = load-balance, 拒绝·节点, REJECT, url = http://cp.cloudflare.com/generate_204, interval = 1000, max-timeout = 1000, algorithm = pcc, img-url = r.circle
 # 手动选择
 全球·手动选择 = select, 全球·节点, DIRECT, REJECT, REJECT-DROP, REJECT-NO-DROP, REJECT-IMG, REJECT-IMG-NO-DROP, REJECT-VIDEO, REJECT-VIDEO-NO-DROP, REJECT-DICT, REJECT-DICT-NO-DROP, REJECT-ARRAY, REJECT-ARRAY-NO-DROP, img-url = w.circle
