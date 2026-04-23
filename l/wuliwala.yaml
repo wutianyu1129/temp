@@ -1,5 +1,5 @@
 # Name: wuliwala.yaml
-# UpdateTime: 2026/4/23-PM/6:23
+# UpdateTime: 2026/4/23-PM/6:24
 
 port: 7890
 socks-port: 7891
@@ -43,6 +43,8 @@ proxy-providers:
       enable: true
       url: http://cp.cloudflare.com/generate_204
       interval: 21600
+    override:
+      skip-cert-verify: true
   机场·订阅·B:
     type: http
     path: ./profiles/proxies/wawa.yaml
@@ -52,6 +54,8 @@ proxy-providers:
       enable: true
       url: http://cp.cloudflare.com/generate_204
       interval: 21600
+    override:
+      skip-cert-verify: true
 
 proxy-groups:  
 # 场景
