@@ -6,7 +6,7 @@
 #!icon=
 #!select = 
 #!input = 
-#!raw-url=https://raw.githubusercontent.com/wutianyu1129/Quantumult-X/main/wawa
+#!raw-url=https://raw.githubusercontent.com/wutianyu1129/temp/loon_plugin
 #!update：2026.4.27
 
 [Rule]
@@ -49,6 +49,9 @@ DOMAIN-SUFFIX, ads-pixiv.net, REJECT
 # 零跑app去除开屏
 ^https?:\/\/apptec\.leapmotor\.cn\/appNewInterface\/getAppStartPageInfo url reject-200
 
+# 航旅纵横去除开屏
+^https:\/\/oss\.umetrip\.com\/fs\/advert\/polite reject
+
 [Script]
 # Pixiv
 http-response ^https?:\/\/oauth\.secure\.pixiv\.net\/(auth\/token) script-path=https://github.com/ddgksf2013/Scripts/raw/master/pixivAds.js, requires-body=true, timeout=60, tag=pixivAds
@@ -60,4 +63,4 @@ http-response ^https?:\/\/oauth\.secure\.pixiv\.net\/(auth\/token) script-path=h
 http-response ^https?:\/\/x\.com\/i\/api\/graphql\/[^\/]+\/(HomeTimeline|TweetDetail) script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/X/X_ads.js, requires-body=true, tag=X网页版去广告
 
 [MITM]
-hostname = x.com, apptec.leapmotor.cn, m.360buyimg.com, client-api-v2.oray.com, googlevideo.com, youtubei.googleapis.com, hd.xiaojukeji.com, common.diditaxi.com.cn, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, res.xiaojukeji.com, conf.diditaxi.com.cn, oauth.secure.pixiv.net, app-api.pixiv.net, oauth.secure.pixiv.net
+hostname = oss.umetrip.com, x.com, apptec.leapmotor.cn, m.360buyimg.com, client-api-v2.oray.com, googlevideo.com, youtubei.googleapis.com, hd.xiaojukeji.com, common.diditaxi.com.cn, freight.xiaojukeji.com, daijia.kuaidadi.com, ct.xiaojukeji.com, res.xiaojukeji.com, conf.diditaxi.com.cn, oauth.secure.pixiv.net, app-api.pixiv.net, oauth.secure.pixiv.net
