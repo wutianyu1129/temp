@@ -1,12 +1,12 @@
 #!name=综合
 #!desc=自用综合Loon模块
-#!openUrl=https://raw.githubusercontent.com/wutianyu1129/Quantumult-X/main/wawa
+#!openUrl=
 #!author=吴天宇
-#!homepage=https://raw.githubusercontent.com/wutianyu1129/Quantumult-X/main/wawa
+#!homepage=
 #!icon=
 #!select = 
 #!input = 
-#!raw-url=https://raw.githubusercontent.com/wutianyu1129/temp/loon_plugin
+#!raw-url = 
 #!update：2026.4.27
 
 [Rule]
