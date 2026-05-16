@@ -57,7 +57,7 @@ proxy-providers:
       override: &provider_override
         skip-cert-verify: true
     path: ./profiles/proxies/flowercloud.yaml
-    url: "https://api.xmancdn.net/osubscribe.php?token2=xqk33vkq-1b7aa364938y6g6vxi&sip002=1"
+    url: "https://api.xmancdn.net/osubscribe.php?token2=xqk33vkq-61e07802a5vlfz0mhg&sip002=1"
 
   蛙蛙·订阅:
     <<: *provider_base
