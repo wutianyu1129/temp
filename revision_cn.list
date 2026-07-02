@@ -1,6 +1,3 @@
-DOMAIN-SUFFIX, ipv64.net
-DOMAIN-SUFFIX, hongdong.online
-
 # RVPN
 DOMAIN-SUFFIX,rvpn.zju.edu.cn
 DOMAIN-SUFFIX,webvpn.zju.edu.cn
@@ -9,3 +6,21 @@ IP-CIDR,61.175.193.50/32,no-resolve
 IP-CIDR,124.160.105.200/32,no-resolve
 IP-CIDR,218.108.88.254/32,no-resolve
 
+# SteamCN
+DOMAIN,csgo.wmsj.cn
+DOMAIN,dl.steam.clngaa.com
+DOMAIN,dl.steam.ksyna.com
+DOMAIN,dota2.wmsj.cn
+DOMAIN,st.dl.bscstorage.net
+DOMAIN,st.dl.eccdnx.com
+DOMAIN,st.dl.pinyuncloud.com
+DOMAIN,steampipe.steamcontent.tnkjmec.com
+DOMAIN,steampowered.com.8686c.com
+DOMAIN,steamstatic.com.8686c.com
+DOMAIN,wmsjsteam.com
+DOMAIN,xz.pphimalayanrt.com
+DOMAIN-SUFFIX,cm.steampowered.com
+DOMAIN-SUFFIX,steamchina.com
+DOMAIN-SUFFIX,steamcontent.com
+DOMAIN-SUFFIX,steamserver.net
+DOMAIN-SUFFIX,steamusercontent.com
