@@ -1,0 +1,25 @@
+# =========================================================
+# Apple Intelligence / Siri / Search / iCloud Private Relay
+# Minimal & Precise - 2026-09
+# =========================================================
+
+# --- Apple Intelligence / Siri ---
+DOMAIN,guzzoni.apple.com
+DOMAIN-SUFFIX,smoot.apple.com
+
+# --- Apple Intelligence Private Cloud Compute / Extensions ---
+DOMAIN,apple-relay.apple.com
+DOMAIN,apple-relay.cloudflare.com
+DOMAIN,apple-relay.fastly-edge.com
+DOMAIN,cp4.cloudflare.com
+
+# --- iCloud Private Relay: official endpoints ---
+DOMAIN,mask.icloud.com
+DOMAIN,mask-h2.icloud.com
+DOMAIN,mask-api.icloud.com
+
+# --- iCloud Private Relay: DNS/CNAME transport endpoints ---
+DOMAIN-SUFFIX,mask.apple-dns.net
+DOMAIN,mask-t.apple-dns.net
+DOMAIN,mask-api.fe.apple-dns.net
+DOMAIN,mask-api.fe2.apple-dns.net
